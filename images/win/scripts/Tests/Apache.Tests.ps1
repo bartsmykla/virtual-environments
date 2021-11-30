@@ -1,4 +1,4 @@
-Describe "Apache" {
+Describe "Apache" -Skip {
     Context "Path" {
         It "Apache" {
             $apachePath = Join-Path (Join-Path "C:\tools\" (Get-Item C:\tools\apache*).Name) "\bin\httpd"

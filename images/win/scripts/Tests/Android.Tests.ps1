@@ -1,6 +1,6 @@
 Import-Module (Join-Path $PSScriptRoot "..\SoftwareReport\SoftwareReport.Android.psm1") -DisableNameChecking
 
-Describe "Android SDK" {
+Describe "Android SDK" -Skip {
     $androidToolset = (Get-ToolsetContent).android
     $androidPackages = Get-AndroidPackages -AndroidSDKManagerPath (Get-AndroidSDKManagerPath)
     $androidInstalledPackages = Get-AndroidInstalledPackages

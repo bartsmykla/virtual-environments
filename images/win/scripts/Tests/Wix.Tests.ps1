@@ -1,4 +1,4 @@
-Describe "Wix" {
+Describe "Wix" -Skip {
     BeforeAll {
       $regKey = "HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*"
       $installedApplications = Get-ItemProperty -Path $regKey

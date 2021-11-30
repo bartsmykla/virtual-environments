@@ -64,31 +64,31 @@ Describe "Perl" -Skip:(Test-IsWin22) {
     }
 }
 
-Describe "Pulumi" {
+Describe "Pulumi" -Skip {
     It "pulumi" {
        "pulumi version" | Should -ReturnZeroExitCode
     }
 }
 
-Describe "Svn" {
+Describe "Svn" -Skip {
     It "svn" {
         "svn --version --quiet" | Should -ReturnZeroExitCode
     }
 }
 
-Describe "Swig" {
+Describe "Swig" -Skip {
     It "Swig" {
         "swig -version" | Should -ReturnZeroExitCode
     }
 }
 
-Describe "VSWhere" {
+Describe "VSWhere" -Skip {
     It "vswhere" {
         "vswhere" | Should -ReturnZeroExitCode
     }
 }
 
-Describe "Julia" {
+Describe "Julia" -Skip {
     It "Julia path exists" {
         "C:\Julia" | Should -Exist
     }

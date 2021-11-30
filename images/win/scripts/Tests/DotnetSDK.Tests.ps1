@@ -1,6 +1,6 @@
 $dotnetVersions = (Get-ToolsetContent).dotnet.versions
 
-Describe "Dotnet SDK" {
+Describe "Dotnet SDK" -Skip {
 
     Context "Default" {
         It "Default Dotnet SDK is available" {

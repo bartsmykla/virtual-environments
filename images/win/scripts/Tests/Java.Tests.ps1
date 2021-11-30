@@ -1,4 +1,4 @@
-Describe "Java" {
+Describe "Java" -Skip {
     $toolsetJava = (Get-ToolsetContent).java
     $defaultVendor = $toolsetJava.default_vendor
     $javaVendors = $toolsetJava.vendors

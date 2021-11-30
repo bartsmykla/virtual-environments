@@ -1,4 +1,4 @@
-Describe "Haskell" {
+Describe "Haskell" -Skip {
     $chocoPackagesPath = Join-Path $env:ChocolateyInstall "lib"
     [array]$ghcVersionList = Get-ChildItem -Path $chocoPackagesPath -Filter "ghc.*" | ForEach-Object { $_.Name.TrimStart("ghc.") }
     $ghcCount = $ghcVersionList.Count

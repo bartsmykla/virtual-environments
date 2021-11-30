@@ -1,4 +1,4 @@
-Describe "Node.JS" {
+Describe "Node.JS" -Skip {
     Context "Basic modules"{
         It "<ToolName> " -TestCases @(
             @{ ToolName = "node" }

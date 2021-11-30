@@ -1,4 +1,4 @@
-Describe "Nginx" {
+Describe "Nginx" -Skip {
     Context "Path" {
         It "Nginx" {
             $nginxPath = Join-Path (Join-Path "C:\tools\" (Get-Item C:\tools\nginx*).Name) "nginx"

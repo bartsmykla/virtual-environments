@@ -1,4 +1,4 @@
-Describe "MongoDB" {
+Describe "MongoDB" -Skip {
     It "<ToolName>" -TestCases @(
         @{ ToolName = "mongo" }
         @{ ToolName = "mongod" }
@@ -8,7 +8,7 @@ Describe "MongoDB" {
     }
 }
 
-Describe "PostgreSQL" {
+Describe "PostgreSQL" -Skip {
     $psqlTests = @(
         @{envVar = "PGROOT"; pgPath = Get-EnvironmentVariable "PGROOT"}
         @{envVar = "PGBIN"; pgPath = Get-EnvironmentVariable "PGBIN"}
@@ -63,7 +63,7 @@ Describe "PostgreSQL" {
     }
 }
 
-Describe "MySQL" {
+Describe "MySQL" -Skip {
     It "MySQL CLI" {
         $MysqlMajorVersion = (Get-ToolsetContent).mysql.major_version
         mysql -V | Should -BeLike "*${MysqlMajorVersion}*"

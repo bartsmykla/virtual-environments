@@ -1,6 +1,6 @@
 Import-Module (Join-Path $PSScriptRoot "..\SoftwareReport\SoftwareReport.Common.psm1") -DisableNameChecking
 
-Describe "Azure Cosmos DB Emulator" {
+Describe "Azure Cosmos DB Emulator" -Skip {
     $cosmosDbEmulatorRegKey = Get-ChildItem "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*" | Get-ItemProperty | Where-Object { $_.DisplayName -eq 'Azure Cosmos DB Emulator' }
     $installDir = $cosmosDbEmulatorRegKey.InstallLocation
 
@@ -23,7 +23,7 @@ Describe "Bazel" {
     }
 }
 
-Describe "CodeQLBundle" {
+Describe "CodeQLBundle" -Skip {
     It "CodeQLBundle" {
         $CodeQLVersionsWildcard = Join-Path $Env:AGENT_TOOLSDIRECTORY -ChildPath "codeql" | Join-Path -ChildPath "*"
         $CodeQLVersionPath = Get-ChildItem $CodeQLVersionsWildcard | Select-Object -First 1 -Expand FullName
@@ -32,13 +32,13 @@ Describe "CodeQLBundle" {
     }
 }
 
-Describe "R" {
+Describe "R" -Skip {
     It "Rscript" {
         "Rscript --version" | Should -ReturnZeroExitCode
     }
 }
 
-Describe "DACFx" {
+Describe "DACFx" -Skip {
     It "DACFx" {
         (Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*).DisplayName -Contains "Microsoft SQL Server Data-Tier Application Framework (x64)" | Should -BeTrue
         $sqlPackagePath = 'C:\Program Files\Microsoft SQL Server\150\DAC\bin\SqlPackage.exe'
@@ -57,7 +57,7 @@ Describe "DotnetTLS" -Skip:(Test-IsWin22) {
     }
 }
 
-Describe "Mercurial" {
+Describe "Mercurial" -Skip {
     It "Mercurial" {
         "hg --version" | Should -ReturnZeroExitCode
     }
@@ -91,7 +91,7 @@ Describe "Mingw64" {
     }
 }
 
-Describe "GoogleCloudSDK" -Skip:(Test-IsWin22) {
+Describe "GoogleCloudSDK" -Skip:(Test-IsWin22) -Skip {
     It "<ToolName>" -TestCases @(
         @{ ToolName = "bq" }
         @{ ToolName = "gcloud" }
@@ -101,14 +101,14 @@ Describe "GoogleCloudSDK" -Skip:(Test-IsWin22) {
     }
 }
 
-Describe "NET48" {
+Describe "NET48" -Skip {
     It "NET48" {
         $netPath = (Get-DotnetFrameworkTools).Path.Split("<")[0]
         ${netPath} + "4.8 Tools" | Should -Exist
     }
 }
 
-Describe "NSIS" {
+Describe "NSIS" -Skip {
     It "NSIS" {
        "makensis /VERSION" | Should -ReturnZeroExitCode
     }
@@ -124,7 +124,7 @@ Describe "PowerShell Core" {
     }
 }
 
-Describe "Sbt" {
+Describe "Sbt" -Skip {
     It "sbt" {
         "sbt --version" | Should -ReturnZeroExitCode
     }
@@ -140,7 +140,7 @@ Describe "ServiceFabricSDK" -Skip:(Test-IsWin22) {
     }
 }
 
-Describe "Stack" {
+Describe "Stack" -Skip {
     It "Stack" {
         "stack --version" | Should -ReturnZeroExitCode
     }
@@ -176,25 +176,25 @@ Describe "VCRedist" -Skip:(Test-IsWin22) {
     }
 }
 
-Describe "WebPlatformInstaller" -Skip:(Test-IsWin22) {
+Describe "WebPlatformInstaller" -Skip:(Test-IsWin22) -Skip {
     It "WebPlatformInstaller" {
         "WebPICMD" | Should -ReturnZeroExitCode
     }
 }
 
-Describe "Zstd" {
+Describe "Zstd" -Skip {
     It "zstd" {
         "zstd -V" | Should -ReturnZeroExitCode
     }
 }
 
-Describe "Pipx" {
+Describe "Pipx" -Skip {
     It "Pipx" {
         "pipx --version" | Should -ReturnZeroExitCode
     }
 }
 
-Describe "Kotlin" {
+Describe "Kotlin" -Skip {
     $kotlinPackages =  @("kapt", "kotlin", "kotlinc", "kotlin-dce-js", "kotlinc-js", "kotlinc-jvm")
 
     It "<toolName> is available" -TestCases ($kotlinPackages | ForEach-Object { @{ toolName = $_ } })  {

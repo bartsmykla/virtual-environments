@@ -1,4 +1,4 @@
-Describe "Rust" {
+Describe "Rust" -Skip {
     $rustTools = @(
         @{ToolName = "rustup"; binPath = "C:\Rust\.cargo\bin\rustup.exe"}
         @{ToolName = "rustc"; binPath = "C:\Rust\.cargo\bin\rustc.exe"}

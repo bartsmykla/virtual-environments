@@ -1,4 +1,4 @@
-Describe "Vsix" {
+Describe "Vsix" -Skip {
     $toolset = Get-ToolsetContent
     $requiredVsixs = $toolset.visualStudio.vsix
 

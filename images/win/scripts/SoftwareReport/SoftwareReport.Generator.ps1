@@ -34,13 +34,13 @@ $markdown += New-MDHeader "Language and Runtime" -Level 3
 $languageTools = @(
     (Get-BashVersion),
     (Get-GoVersion),
-    (Get-JuliaVersion),
+#     (Get-JuliaVersion),
     (Get-LLVMVersion),
     (Get-NodeVersion),
-    (Get-PHPVersion),
+#     (Get-PHPVersion),
     (Get-PythonVersion),
     (Get-RubyVersion),
-    (Get-KotlinVersion)
+#     (Get-KotlinVersion)
 )
 if ((Test-IsWin16) -or (Test-IsWin19)) {
     $languageTools += @(
@@ -51,15 +51,15 @@ $markdown += New-MDList -Style Unordered -Lines ($languageTools | Sort-Object)
 
 $packageManagementList = @(
     (Get-ChocoVersion),
-    (Get-CondaVersion),
-    (Get-ComposerVersion),
+#     (Get-CondaVersion),
+#     (Get-ComposerVersion),
     (Get-HelmVersion),
     (Get-NPMVersion),
     (Get-NugetVersion),
-    (Get-PipxVersion),
+#     (Get-PipxVersion),
     (Get-PipVersion),
     (Get-RubyGemsVersion),
-    (Get-VcpkgVersion),
+#     (Get-VcpkgVersion),
     (Get-YarnVersion)
 )
 
@@ -70,15 +70,15 @@ $markdown += New-MDHeader "Environment variables" -Level 4
 $markdown += Build-PackageManagementEnvironmentTable | New-MDTable
 $markdown += New-MDNewLine
 
-$markdown += New-MDHeader "Project Management" -Level 3
-$projectManagementTools = @(
-    (Get-AntVersion),
-    (Get-GradleVersion),
-    (Get-MavenVersion),
-    (Get-SbtVersion)
-)
-
-$markdown += New-MDList -Style Unordered -Lines ($projectManagementTools | Sort-Object)
+# $markdown += New-MDHeader "Project Management" -Level 3
+# $projectManagementTools = @(
+# #     (Get-AntVersion),
+# #     (Get-GradleVersion),
+# #     (Get-MavenVersion),
+# #     (Get-SbtVersion)
+# )
+#
+# $markdown += New-MDList -Style Unordered -Lines ($projectManagementTools | Sort-Object)
 
 $markdown += New-MDHeader "Tools" -Level 3
 $toolsList = @(
@@ -88,9 +88,9 @@ $toolsList = @(
     (Get-BazelVersion),
     (Get-BazeliskVersion),
     (Get-BicepVersion),
-    (Get-CabalVersion),
+#     (Get-CabalVersion),
     (Get-CMakeVersion),
-    (Get-CodeQLBundleVersion),
+#     (Get-CodeQLBundleVersion),
     (Get-DockerVersion),
     (Get-DockerComposeVersion),
     (Get-DockerWincredVersion),
@@ -101,34 +101,34 @@ $toolsList = @(
     (Get-JQVersion),
     (Get-KindVersion),
     (Get-KubectlVersion),
-    (Get-MercurialVersion),
-    (Get-MinGWVersion),
-    (Get-NewmanVersion),
-    (Get-NSISVersion),
+#     (Get-MercurialVersion),
+#     (Get-MinGWVersion),
+#     (Get-NewmanVersion),
+#     (Get-NSISVersion),
     (Get-OpenSSLVersion),
     (Get-PackerVersion),
-    (Get-PulumiVersion),
-    (Get-RVersion),
-    (Get-StackVersion),
-    (Get-SVNVersion),
-    (Get-VSWhereVersion),
-    (Get-SwigVersion),
-    (Get-WinAppDriver),
-    (Get-WixVersion),
-    (Get-ZstdVersion),
+#     (Get-PulumiVersion),
+#     (Get-RVersion),
+#     (Get-StackVersion),
+#     (Get-SVNVersion),
+#     (Get-VSWhereVersion),
+#     (Get-SwigVersion),
+#     (Get-WinAppDriver),
+#     (Get-WixVersion),
+#     (Get-ZstdVersion),
     (Get-YAMLLintVersion)
 )
-if ((Test-IsWin16) -or (Test-IsWin19)) {
-    $toolsList += @(
-        (Get-GoogleCloudSDKVersion),
-        (Get-ServiceFabricSDKVersion)
-    )
-}
+# if ((Test-IsWin16) -or (Test-IsWin19)) {
+#     $toolsList += @(
+#         (Get-GoogleCloudSDKVersion),
+#         (Get-ServiceFabricSDKVersion)
+#     )
+# }
 $markdown += New-MDList -Style Unordered -Lines ($toolsList | Sort-Object)
 
 $markdown += New-MDHeader "CLI Tools" -Level 3
 $cliTools = @(
-    (Get-AlibabaCLIVersion),
+#     (Get-AlibabaCLIVersion),
     (Get-AWSCLIVersion),
     (Get-AWSSAMVersion),
     (Get-AWSSessionManagerVersion),
@@ -144,45 +144,45 @@ if ((Test-IsWin16) -or (Test-IsWin19)) {
 }
 $markdown += New-MDList -Style Unordered -Lines ($cliTools | Sort-Object)
 
-$markdown += New-MDHeader "Rust Tools" -Level 3
-$markdown += New-MDList -Style Unordered -Lines (@(
-    "Rust $(Get-RustVersion)",
-    "Rustup $(Get-RustupVersion)",
-    "Cargo $(Get-RustCargoVersion)",
-    "Rustdoc $(Get-RustdocVersion)"
-    ) | Sort-Object
-)
+# $markdown += New-MDHeader "Rust Tools" -Level 3
+# $markdown += New-MDList -Style Unordered -Lines (@(
+# #     "Rust $(Get-RustVersion)",
+# #     "Rustup $(Get-RustupVersion)",
+# #     "Cargo $(Get-RustCargoVersion)",
+# #     "Rustdoc $(Get-RustdocVersion)"
+#     ) | Sort-Object
+# )
 
-$markdown += New-MDHeader "Packages" -Level 4
-$markdown += New-MDList -Style Unordered -Lines (@(
-    (Get-BindgenVersion),
-    (Get-CargoAuditVersion),
-    (Get-CargoOutdatedVersion),
-    (Get-CbindgenVersion),
-    "Rustfmt $(Get-RustfmtVersion)",
-    "Clippy $(Get-RustClippyVersion)"
-    ) | Sort-Object
-)
+# $markdown += New-MDHeader "Packages" -Level 4
+# $markdown += New-MDList -Style Unordered -Lines (@(
+#     (Get-BindgenVersion),
+#     (Get-CargoAuditVersion),
+#     (Get-CargoOutdatedVersion),
+#     (Get-CbindgenVersion),
+#     "Rustfmt $(Get-RustfmtVersion)",
+#     "Clippy $(Get-RustClippyVersion)"
+#     ) | Sort-Object
+# )
 
-$markdown += New-MDHeader "Browsers and webdrivers" -Level 3
-$markdown += New-MDList -Style Unordered -Lines @(
-    (Get-BrowserVersion -Browser "chrome"),
-    (Get-SeleniumWebDriverVersion -Driver "chrome"),
-    (Get-BrowserVersion -Browser "edge"),
-    (Get-SeleniumWebDriverVersion -Driver "edge"),
-    (Get-BrowserVersion -Browser "firefox"),
-    (Get-SeleniumWebDriverVersion -Driver "firefox"),
-    (Get-SeleniumWebDriverVersion -Driver "iexplorer"),
-    (Get-SeleniumVersion)
-)
+# $markdown += New-MDHeader "Browsers and webdrivers" -Level 3
+# $markdown += New-MDList -Style Unordered -Lines @(
+#     (Get-BrowserVersion -Browser "chrome"),
+#     (Get-SeleniumWebDriverVersion -Driver "chrome"),
+#     (Get-BrowserVersion -Browser "edge"),
+#     (Get-SeleniumWebDriverVersion -Driver "edge"),
+#     (Get-BrowserVersion -Browser "firefox"),
+#     (Get-SeleniumWebDriverVersion -Driver "firefox"),
+#     (Get-SeleniumWebDriverVersion -Driver "iexplorer"),
+#     (Get-SeleniumVersion)
+# )
 
 $markdown += New-MDHeader "Environment variables" -Level 4
 $markdown += Build-BrowserWebdriversEnvironmentTable | New-MDTable
 $markdown += New-MDNewLine
 
-$markdown += New-MDHeader "Java" -Level 3
-$markdown += Get-JavaVersions | New-MDTable
-$markdown += New-MDNewLine
+# $markdown += New-MDHeader "Java" -Level 3
+# $markdown += Get-JavaVersions | New-MDTable
+# $markdown += New-MDNewLine
 
 $markdown += New-MDHeader "Shells" -Level 3
 $markdown += Get-ShellTarget
@@ -212,19 +212,19 @@ $markdown += New-MDHeader "Cached Tools" -Level 3
 $markdown += (Build-CachedToolsMarkdown)
 $markdown += New-MDNewLine
 
-$markdown += New-MDHeader "Databases" -Level 3
-$markdown += Build-DatabasesMarkdown
-$markdown += New-MDNewLine
+# $markdown += New-MDHeader "Databases" -Level 3
+# $markdown += Build-DatabasesMarkdown
+# $markdown += New-MDNewLine
 
-$markdown += New-MDHeader "Database tools" -Level 3
-$markdown += New-MDList -Style Unordered -Lines (@(
-    (Get-AzCosmosDBEmulatorVersion),
-    (Get-DacFxVersion),
-    (Get-MySQLVersion),
-    (Get-SQLPSVersion)
-    ) | Sort-Object
-)
-$markdown += New-MDNewLine
+# $markdown += New-MDHeader "Database tools" -Level 3
+# $markdown += New-MDList -Style Unordered -Lines (@(
+#     (Get-AzCosmosDBEmulatorVersion),
+#     (Get-DacFxVersion),
+#     (Get-MySQLVersion),
+#     (Get-SQLPSVersion)
+#     ) | Sort-Object
+# )
+# $markdown += New-MDNewLine
 
 $markdown += Build-WebServersSection
 
@@ -243,28 +243,28 @@ $markdown += New-MDNewLine
 $markdown += Get-VisualCPPComponents | New-MDTable
 $markdown += New-MDNewLine
 
-$markdown += New-MDHeader ".NET Core SDK" -Level 3
-$sdk = Get-DotnetSdks
-$markdown += "``Location $($sdk.Path)``"
-$markdown += New-MDNewLine
-$markdown += New-MDList -Lines $sdk.Versions -Style Unordered
-
-$markdown += New-MDHeader ".NET Core Runtime" -Level 3
-Get-DotnetRuntimes | Foreach-Object {
-    $path = $_.Path
-    $versions = $_.Versions
-    $markdown += "``Location: $path``"
-    $markdown += New-MDNewLine
-    $markdown += New-MDList -Lines $versions -Style Unordered
-}
-
-$markdown += New-MDHeader ".NET Framework" -Level 3
-$frameworks = Get-DotnetFrameworkTools
-$markdown += "``Type: Developer Pack``"
-$markdown += New-MDNewLine
-$markdown += "``Location $($frameworks.Path)``"
-$markdown += New-MDNewLine
-$markdown += New-MDList -Lines $frameworks.Versions -Style Unordered
+# $markdown += New-MDHeader ".NET Core SDK" -Level 3
+# $sdk = Get-DotnetSdks
+# $markdown += "``Location $($sdk.Path)``"
+# $markdown += New-MDNewLine
+# $markdown += New-MDList -Lines $sdk.Versions -Style Unordered
+#
+# $markdown += New-MDHeader ".NET Core Runtime" -Level 3
+# Get-DotnetRuntimes | Foreach-Object {
+#     $path = $_.Path
+#     $versions = $_.Versions
+#     $markdown += "``Location: $path``"
+#     $markdown += New-MDNewLine
+#     $markdown += New-MDList -Lines $versions -Style Unordered
+# }
+#
+# $markdown += New-MDHeader ".NET Framework" -Level 3
+# $frameworks = Get-DotnetFrameworkTools
+# $markdown += "``Type: Developer Pack``"
+# $markdown += New-MDNewLine
+# $markdown += "``Location $($frameworks.Path)``"
+# $markdown += New-MDNewLine
+# $markdown += New-MDList -Lines $frameworks.Versions -Style Unordered
 
 # PowerShell Tools
 $markdown += New-MDHeader "PowerShell Tools" -Level 3
@@ -285,13 +285,13 @@ $markdown += New-MDHeader "Powershell Modules" -Level 4
 $markdown += Get-PowerShellModules | New-MDTable
 $markdown += New-MDNewLine
 
-# Android section
-$markdown += New-MDHeader "Android" -Level 3
-$markdown += Build-AndroidTable | New-MDTable
-$markdown += New-MDNewLine
-$markdown += New-MDHeader "Environment variables" -Level 4
-$markdown += Build-AndroidEnvironmentTable | New-MDTable
-$markdown += New-MDNewLine
+# # Android section
+# $markdown += New-MDHeader "Android" -Level 3
+# $markdown += Build-AndroidTable | New-MDTable
+# $markdown += New-MDNewLine
+# $markdown += New-MDHeader "Environment variables" -Level 4
+# $markdown += Build-AndroidEnvironmentTable | New-MDTable
+# $markdown += New-MDNewLine
 
 # Docker images section
 $cachedImages = Get-CachedDockerImagesTableData

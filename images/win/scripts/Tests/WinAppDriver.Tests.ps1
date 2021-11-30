@@ -1,4 +1,4 @@
-Describe "WinAppDriver" {
+Describe "WinAppDriver" -Skip {
   It "WinAppDriver directory exists" {
     Test-Path -Path "${env:ProgramFiles(x86)}\Windows Application Driver" | Should -BeTrue
   }

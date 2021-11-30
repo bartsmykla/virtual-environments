@@ -1,4 +1,4 @@
-Describe "PHP" {
+Describe "PHP" -Skip {
     It "Check PHP version" {
         $phpMajorMinor = (Get-ToolsetContent).php.version
         $phpInstalledVersion = php --version | Select-String -Pattern "PHP $phpMajorMinor"

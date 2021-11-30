@@ -1,4 +1,4 @@
-Describe "Chrome" {
+Describe "Chrome" -Skip {
     Context "WebDriver" {
         It "ChromeWebDriver environment variable and path exists" {
             $env:ChromeWebDriver | Should -Not -BeNullOrEmpty
@@ -50,7 +50,7 @@ Describe "Chrome" {
     }
 }
 
-Describe "Edge" {
+Describe "Edge" -Skip {
     Context "WebDriver" {
         It "EdgeWebDriver environment variable and path exists" {
             $env:EdgeWebDriver | Should -Not -BeNullOrEmpty
@@ -85,7 +85,7 @@ Describe "Edge" {
     }
 }
 
-Describe "Firefox" {
+Describe "Firefox" -Skip {
     Context "WebDriver" {
         It "GeckoWebDriver environment variable and path exists" {
             $env:GeckoWebDriver | Should -Not -BeNullOrEmpty
@@ -120,7 +120,7 @@ Describe "Firefox" {
     }
 }
 
-Describe "Internet Explorer" {
+Describe "Internet Explorer" -Skip {
     Context "WebDriver" {
         It "IEWebDriver environment variable and path exists" {
             $env:IEWebDriver | Should -Not -BeNullOrEmpty
@@ -138,7 +138,7 @@ Describe "Internet Explorer" {
     }
 }
 
-Describe "Selenium" {
+Describe "Selenium" -Skip {
     BeforeAll {
         $seleniumBinaryName = (Get-ToolsetContent).selenium.binary_name
         $seleniumBinPath = Join-Path "C:\selenium\" "$seleniumBinaryName.jar"

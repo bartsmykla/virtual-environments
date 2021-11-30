@@ -11,7 +11,7 @@ Describe "Azure DevOps CLI" {
     }
 }
 
-Describe "Aliyun CLI" {
+Describe "Aliyun CLI" -Skip {
     It "Aliyun CLI" {
         "aliyun version" | Should -ReturnZeroExitCode
     }
